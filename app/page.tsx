@@ -56,6 +56,16 @@ const categories = [
     link: 'category/iw'
   },
   {
+    name: 'imx',
+    label: 'Intermediate Mixed',
+    link: 'category/imx'
+  },
+  {
+    name: 'exc',
+    label: 'Executive (45 and up)',
+    link: 'category/exc'
+  },
+  {
     name: 'open',
     label: 'Open',
     link: 'category/open'
