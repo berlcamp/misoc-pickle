@@ -65,6 +65,7 @@ export default function ViewRegistrationsPage() {
       .from('pickle')
       .select('*')
       .eq('category', selectedCategory)
+      .eq('event', 'misoc')
       .order('id', { ascending: false })
 
     if (error) {

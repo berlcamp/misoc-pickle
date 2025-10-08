@@ -129,7 +129,7 @@ export default function Home() {
       tshirt_name_a: formdata.tshirt_name_a,
       tshirt_name_b: formdata.tshirt_name_b,
       proof: proofPath, // store proof path here
-      event: 'lopez'
+      event: 'misoc'
     }
 
     try {
@@ -151,7 +151,7 @@ export default function Home() {
       const { data } = await supabase
         .from('pickle')
         .select()
-        .eq('event', 'lopez')
+        .eq('event', 'misoc')
 
       if (data) {
         setRegistrations(data)
@@ -216,9 +216,9 @@ export default function Home() {
                 {/* Title */}
                 <div className="text-center space-y-8">
                   <div className="text-3xl font-bold text-green-700">
-                    <div>1st Asenso Lopez Jaena Pickleball Tournament</div>
+                    <div>Asenso Misamis Occidental Pickleball Tournament</div>
                     <div className="text-base text-green-800">
-                      November 22-23 2025
+                      November 8-9 2025
                     </div>
                   </div>
 
@@ -247,6 +247,10 @@ export default function Home() {
                         <span className="font-medium">₱800/player</span>
                       </div>
                       <div className="flex justify-between border-b border-gray-100 pb-1 space-x-2">
+                        <span>Executive (45 and up)</span>
+                        <span className="font-medium">₱800/player</span>
+                      </div>
+                      <div className="flex justify-between border-b border-gray-100 pb-1 space-x-2">
                         <span>Open</span>
                         <span className="font-medium">₱1,000/player</span>
                       </div>
@@ -255,7 +259,7 @@ export default function Home() {
                       <div>
                         You can pay through GCash:{' '}
                         <span className="font-bold">
-                          09765311269 / Paul Thomas Saladaga
+                          (0938) 956 4209 / Carolyn Marie Diego
                         </span>
                       </div>
                       <div className="italic text-sm">
