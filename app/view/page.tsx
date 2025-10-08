@@ -108,7 +108,7 @@ export default function ViewRegistrationsPage() {
     try {
       const { error } = await supabase
         .from('pickle')
-        .update({ status: newStatus, flight: '' })
+        .update({ status: newStatus })
         .eq('id', id)
 
       if (error) throw error
