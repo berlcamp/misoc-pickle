@@ -21,6 +21,7 @@ interface FormTypes {
   tshirt_name_a: string
   tshirt_name_b: string
   proof?: FileList
+  idproof?: FileList
   agree: boolean
 }
 
@@ -82,6 +83,7 @@ export default function Home() {
     register,
     formState: { errors },
     handleSubmit,
+    watch,
     reset
   } = useForm<FormTypes>({
     mode: 'onSubmit'
@@ -95,6 +97,7 @@ export default function Home() {
 
   const handleCreate = async (formdata: FormTypes) => {
     let proofPath = null
+    let idproofPath = null
 
     // 🔹 1. Upload proof of payment file if exists
 
@@ -126,7 +129,37 @@ export default function Home() {
       proofPath = publicUrlData.publicUrl // ✅ this is the public path to save
     }
 
-    // 🔹 2. Insert registration record into pickle table
+    // 🔹 2. Upload ID file if exists
+
+    if (formdata.idproof && formdata.idproof.length > 0) {
+      const file = formdata.idproof[0]
+      const fileExt = file.name.split('.').pop()
+      const fileName = `${Date.now()}_${formdata.player_a
+        .replace(/\s+/g, '_')
+        .toLowerCase()}.${fileExt}`
+      const filePath = `idproofs/${fileName}`
+
+      // Upload to Supabase Storage
+      const { error: uploadError } = await supabase.storage
+        .from('publicbucket') // ✅ make sure this is your actual bucket name
+        .upload(filePath, file, { upsert: true })
+
+      if (uploadError) {
+        console.error('Upload error:', uploadError)
+        alert('Error uploading proof of payment.')
+        setSaving(false)
+        return
+      }
+
+      // 🔹 2. Get public URL immediately
+      const { data: idpublicUrlData } = supabase.storage
+        .from('publicbucket')
+        .getPublicUrl(filePath)
+
+      idproofPath = idpublicUrlData.publicUrl // ✅ this is the public path to save
+    }
+
+    // 🔹 3. Insert registration record into pickle table
     const params = {
       player_a: formdata.player_a,
       player_b: formdata.player_b,
@@ -139,6 +172,7 @@ export default function Home() {
       tshirt_name_a: formdata.tshirt_name_a,
       tshirt_name_b: formdata.tshirt_name_b,
       proof: proofPath, // store proof path here
+      idproof: idproofPath, // store id path here
       event: 'misoc'
     }
 
@@ -394,6 +428,26 @@ export default function Home() {
                           </div>
                         )}
                       </div>
+
+                      {/* Upload ID */}
+                      {watch('category') === 'exc' && (
+                        <div>
+                          <div className="text-gray-600 font-medium text-sm">
+                            Proof of Age (Upload picture of ID Card)
+                          </div>
+                          <input
+                            {...register('idproof', { required: true })}
+                            type="file"
+                            accept="image/*,application/pdf"
+                            className="w-full text-sm py-1 px-2 border border-gray-300 rounded-sm"
+                          />
+                          {errors.proof && (
+                            <div className="app__error_message">
+                              ID is required
+                            </div>
+                          )}
+                        </div>
+                      )}
 
                       {/* Tshirt Sizes */}
                       <div>
