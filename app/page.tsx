@@ -280,7 +280,7 @@ export default function Home() {
                       {/* Player A */}
                       <div>
                         <div className="text-gray-600 font-medium text-sm">
-                          Player A
+                          Player A (Full name required)
                         </div>
                         <input
                           {...register('player_a', { required: true })}
@@ -297,7 +297,7 @@ export default function Home() {
                       {/* Player B */}
                       <div>
                         <div className="text-gray-600 font-medium text-sm">
-                          Player B
+                          Player B (Full name required)
                         </div>
                         <input
                           {...register('player_b', { required: true })}
