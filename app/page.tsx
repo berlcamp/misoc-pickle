@@ -24,11 +24,11 @@ interface FormTypes {
 }
 
 const categories = [
-  {
-    name: 'novice',
-    label: 'Novice',
-    link: 'category/novice'
-  },
+  // {
+  //   name: 'novice',
+  //   label: 'Novice',
+  //   link: 'category/novice'
+  // },
   {
     name: 'bm',
     label: 'Beginner Men',
