@@ -29,11 +29,11 @@ const categories = [
   //   label: 'Novice',
   //   link: 'category/novice'
   // },
-  {
-    name: 'bm',
-    label: 'Beginner Men',
-    link: 'category/bm'
-  },
+  // {
+  //   name: 'bm',
+  //   label: 'Beginner Men',
+  //   link: 'category/bm'
+  // },
   {
     name: 'bw',
     label: 'Beginner Women',
