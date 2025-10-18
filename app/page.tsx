@@ -34,16 +34,16 @@ const categories = [
   //   label: 'Beginner Men',
   //   link: 'category/bm'
   // },
-  // {
-  //   name: 'bw',
-  //   label: 'Beginner Women',
-  //   link: 'category/bw'
-  // },
-  // {
-  //   name: 'bmx',
-  //   label: 'Beginner Mixed',
-  //   link: 'category/bmx'
-  // },
+  {
+    name: 'bw',
+    label: 'Beginner Women',
+    link: 'category/bw'
+  },
+  {
+    name: 'bmx',
+    label: 'Beginner Mixed',
+    link: 'category/bmx'
+  },
   {
     name: 'im',
     label: 'Intermediate Men',
