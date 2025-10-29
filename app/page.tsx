@@ -372,10 +372,14 @@ export default function Home() {
                 </div>
 
                 <div className="my-6 font-mono text-center text-lg">
+                  Registration is currently closed.
+                </div>
+
+                <div className="hidden my-6 font-mono text-center text-lg">
                   Register your team below:
                 </div>
 
-                <div className="font-mono">
+                <div className="hidden font-mono">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col space-y-6">
                       {/* Player A */}
