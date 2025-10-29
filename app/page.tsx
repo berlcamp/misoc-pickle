@@ -324,7 +324,7 @@ export default function Home() {
                   </div>
 
                   {/* Registration Fee Section */}
-                  <div className="mt-4 bg-emerald-50 border border-emerald-200 rounded-xl inline-block px-6 py-4 text-sm md:text-base shadow-sm">
+                  <div className="hidden mt-4 bg-emerald-50 border border-emerald-200 rounded-xl px-6 py-4 text-sm md:text-base shadow-sm">
                     <h2 className="text-gray-800 font-semibold text-lg mb-2 text-center">
                       Registration Fee
                     </h2>
