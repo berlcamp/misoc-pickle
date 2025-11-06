@@ -9,18 +9,18 @@ const categories = [
     label: 'Novice',
     link: 'https://challonge.com/pik3sypl/module'
   },
-  { name: 'bm', label: 'Beginner Men', link: 'na' },
+  { name: 'bm', label: 'Beginner Men', link: 'na1' },
   {
     name: 'bw',
     label: 'Beginner Women',
-    link: 'na'
+    link: 'na2'
   },
   {
     name: 'bmx',
     label: 'Beginner Mixed',
     link: 'https://challonge.com/zm4dyzi5/module'
   },
-  { name: 'im', label: 'Intermediate Men', link: 'na' },
+  { name: 'im', label: 'Intermediate Men', link: 'na3' },
   {
     name: 'iw',
     label: 'Intermediate Women',
@@ -88,34 +88,38 @@ export default function CategoriesPage() {
             </div>
           </div>
         </div>
-        {selected && selected === 'na' && (
-          <div className="w-full mt-4 min-h-[80vh] bg-white relative">
-            <div className="absolute inset-0 flex items-start pt-10 justify-center z-10">
-              <p className="text-gray-700 text-lg animate-pulse">
-                Group stage details not yet available.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* Iframe Section */}
-        {selected && selected !== 'na' && (
-          <div className="w-full mt-4 min-h-[80vh] bg-white relative">
-            {!iframeLoaded && (
-              <div className="absolute inset-0 flex items-start pt-10 justify-center bg-white/80 z-10">
-                <p className="text-gray-600 text-lg animate-pulse">
-                  Loading matches, please wait...
+        {selected &&
+          (selected === 'na1' || selected === 'na2' || selected === 'na3') && (
+            <div className="w-full mt-4 min-h-[80vh] bg-white relative">
+              <div className="absolute inset-0 flex items-start pt-10 justify-center z-10">
+                <p className="text-gray-700 text-lg animate-pulse">
+                  Group stage details not yet available.
                 </p>
               </div>
-            )}
-            <iframe
-              src={selected}
-              title="Category View"
-              className="w-full h-[700px] border-0"
-              onLoad={() => setIframeLoaded(true)}
-            />
-          </div>
-        )}
+            </div>
+          )}
+
+        {/* Iframe Section */}
+        {selected &&
+          selected !== 'na1' &&
+          selected !== 'na2' &&
+          selected !== 'na3' && (
+            <div className="w-full mt-4 min-h-[80vh] bg-white relative">
+              {!iframeLoaded && (
+                <div className="absolute inset-0 flex items-start pt-10 justify-center bg-white/80 z-10">
+                  <p className="text-gray-600 text-lg animate-pulse">
+                    Loading matches, please wait...
+                  </p>
+                </div>
+              )}
+              <iframe
+                src={selected}
+                title="Category View"
+                className="w-full h-[700px] border-0"
+                onLoad={() => setIframeLoaded(true)}
+              />
+            </div>
+          )}
       </div>
     </div>
   )
