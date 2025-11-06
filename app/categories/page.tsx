@@ -24,7 +24,11 @@ const categories = [
     label: 'Beginner Mixed',
     link: 'https://challonge.com/zm4dyzi5/module'
   },
-  { name: 'im', label: 'Intermediate Men', link: 'na3' },
+  {
+    name: 'im',
+    label: 'Intermediate Men',
+    link: 'https://challonge.com/emvsoidd/module'
+  },
   {
     name: 'iw',
     label: 'Intermediate Women',
