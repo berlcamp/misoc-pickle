@@ -17,7 +17,7 @@ const categories = [
   {
     name: 'bw',
     label: 'Beginner Women',
-    link: 'na2'
+    link: 'https://challonge.com/pwd53hxc/module'
   },
   {
     name: 'bmx',
