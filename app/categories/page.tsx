@@ -9,7 +9,11 @@ const categories = [
     label: 'Novice',
     link: 'https://challonge.com/pik3sypl/module'
   },
-  { name: 'bm', label: 'Beginner Men', link: 'na1' },
+  {
+    name: 'bm',
+    label: 'Beginner Men',
+    link: 'https://challonge.com/ixpwq482/module'
+  },
   {
     name: 'bw',
     label: 'Beginner Women',
